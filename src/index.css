@@ -1,99 +1,74 @@
 @import "tailwindcss";
 
+/* Colours: black background, one purple (#5A189A) for anything you can press or that matters,
+   a lighter purple for purple text so it stays readable, and green/amber only for status. */
 @theme {
-  --color-surface-dim: #0a0a0d;
-  --color-surface: #0e0e12;
-  --color-background: #0e0e12;
-  --color-surface-container-lowest: #060608;
-  --color-surface-container-low: #131318;
-  --color-surface-container: #181820;
-  --color-surface-container-high: #20202a;
-  --color-surface-container-highest: #2a2a38;
-  --color-surface-bright: #323242;
-  
-  --color-on-surface: #f4f4f7;
-  --color-on-surface-variant: #a1a1b2;
-  --color-outline: #717182;
-  --color-outline-variant: #383848;
-  
-  --color-primary: #c084fc;
-  --color-primary-container: #8b5cf6;
-  --color-on-primary: #2e1065;
-  --color-on-primary-container: #f5f3ff;
-  --color-primary-fixed: #e9d5ff;
-  --color-inverse-primary: #7c3aed;
-  
-  --color-secondary: #d8b4fe;
-  --color-secondary-container: #581c87;
-  --color-secondary-fixed: #f3e8ff;
-  --color-on-secondary: #3b0764;
-  --color-on-secondary-container: #e9d5ff;
-  
-  --color-tertiary: #10b981;
-  --color-tertiary-container: #065f46;
-  --color-on-tertiary: #022c22;
-  --color-tertiary-fixed: #6ee7b7;
-  
-  --color-error: #f87171;
-  --color-error-container: #7f1d1d;
-  
-  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --color-bg: #000000;
+  --color-panel: #0d0c11;
+  --color-panel-2: #15131b;
+  --color-line: #24212c;
+  --color-line-strong: #3a3645;
+
+  --color-ink: #eeecf3;
+  --color-muted: #aaa6b5;
+  --color-faint: #7c7888;
+
+  --color-brand: #5a189a;
+  --color-brand-hover: #6d23b6;
+  --color-brand-soft: #c9a2f2;
+  --color-brand-tint: #1c0f2b;
+
+  --color-ok: #4ade80;
+  --color-warn: #f5b84a;
+
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 @layer base {
-  html, body {
-    font-family: var(--font-sans);
-    background-color: #0e0e12;
-    color: #f4f4f7;
+  html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  html, body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
-  code, pre, .font-mono {
-    font-family: var(--font-mono);
+  ::selection {
+    background: #5a189a;
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid #c9a2f2;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .font-mono {
     font-feature-settings: "tnum" 1;
   }
 }
 
-.material-symbols-outlined {
-  font-family: 'Material Symbols Outlined';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  font-feature-settings: 'liga';
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-/* Subtle, polished scrollbars */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+/* The heatmap fills in once when the page loads. This is the only automatic animation on the site. */
+@keyframes cell-in {
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: scale(1); }
 }
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #20202a;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #2a2a38;
+.heat-cell {
+  animation: cell-in 360ms ease-out both;
 }
 
-/* Subtle noise texture or hairline separator utilities */
-.hairline-border {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-.hairline-border-hover:hover {
-  border-color: rgba(255, 255, 255, 0.18);
-}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #24212c; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3645; }

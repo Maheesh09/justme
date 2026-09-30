@@ -1,20 +1,39 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# maheesh.me
 
-# Run and deploy your AI Studio app
+My personal portfolio. Built with React, Vite and Tailwind CSS.
 
-This contains everything you need to run your app locally.
+## Run it locally
 
-View your app in AI Studio: https://ai.studio/apps/b7b50764-cfb0-447f-9462-0cb491d2bb70
+```bash
+npm install
+npm run dev
+```
 
-## Run Locally
+Open http://localhost:3000
 
-**Prerequisites:**  Node.js
+## Where things live
 
+| What | Where |
+|---|---|
+| All text, projects, achievements, articles | `src/data/portfolioData.ts` |
+| Profile photo | `public/images/profile.jpg` |
+| Project screenshots | `public/images/projects/` |
+| Achievement photos | `public/images/achievements/` |
+| CV download | `public/cv/Maheesha_Pramuditha_CV.pdf` |
+| GitHub contribution data | `public/contributions.json` (made by `scripts/fetch-contributions.mjs`) |
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Adding an image
+
+1. Put the file in the right folder, for example `public/images/projects/synkron.png`.
+2. In `src/data/portfolioData.ts`, set the path: `cover: '/images/projects/synkron.png'`.
+
+Anything without an image shows a simple placeholder. The big image on a project page only appears once a real screenshot is set.
+
+## GitHub contributions
+
+The heatmap uses real data in two ways:
+
+1. Every `npm run build` runs `scripts/fetch-contributions.mjs`, which saves your latest calendar from GitHub into `public/contributions.json`.
+2. In the browser, the site shows that saved file straight away, then tries to load fresher numbers from a public contributions API. If that fails, the saved file stays.
+
+To refresh the saved file by hand: `npm run contributions`
