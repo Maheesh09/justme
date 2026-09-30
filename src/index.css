@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface-dim: #0a0a0d;
+  --color-surface: #0e0e12;
+  --color-background: #0e0e12;
+  --color-surface-container-lowest: #060608;
+  --color-surface-container-low: #131318;
+  --color-surface-container: #181820;
+  --color-surface-container-high: #20202a;
+  --color-surface-container-highest: #2a2a38;
+  --color-surface-bright: #323242;
+  
+  --color-on-surface: #f4f4f7;
+  --color-on-surface-variant: #a1a1b2;
+  --color-outline: #717182;
+  --color-outline-variant: #383848;
+  
+  --color-primary: #c084fc;
+  --color-primary-container: #8b5cf6;
+  --color-on-primary: #2e1065;
+  --color-on-primary-container: #f5f3ff;
+  --color-primary-fixed: #e9d5ff;
+  --color-inverse-primary: #7c3aed;
+  
+  --color-secondary: #d8b4fe;
+  --color-secondary-container: #581c87;
+  --color-secondary-fixed: #f3e8ff;
+  --color-on-secondary: #3b0764;
+  --color-on-secondary-container: #e9d5ff;
+  
+  --color-tertiary: #10b981;
+  --color-tertiary-container: #065f46;
+  --color-on-tertiary: #022c22;
+  --color-tertiary-fixed: #6ee7b7;
+  
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  html, body {
+    font-family: var(--font-sans);
+    background-color: #0e0e12;
+    color: #f4f4f7;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+    font-feature-settings: "tnum" 1;
+  }
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle, polished scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #20202a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a38;
+}
+
+/* Subtle noise texture or hairline separator utilities */
+.hairline-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.hairline-border-hover:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
