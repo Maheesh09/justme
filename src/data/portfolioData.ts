@@ -62,8 +62,8 @@ export const PROFILE = {
   githubUser: 'Maheesh09',
   linkedin: 'https://www.linkedin.com/in/maheeshapramuditha',
   medium: 'https://medium.com/@pramudithamaheesha',
-  /** Drop your latest CV here: public/cv/Maheesha_Pramuditha_CV.pdf */
-  cvUrl: '/cv/Maheesha_Pramuditha_CV.pdf',
+  /** Drop your latest CV here: public/cv/MAHEESHA_PRAMUDITHA_GENERAL_CV.pdf */
+  cvUrl: '/cv/MAHEESHA_PRAMUDITHA_General_CV.pdf',
 };
 
 export const PROJECTS: Record<string, Project> = {
